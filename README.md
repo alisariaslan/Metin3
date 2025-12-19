@@ -1,12 +1,12 @@
 # Metin3
 Metin2 oyun projesinin Unity ile yazılıp modernleştirilmiş halidir. 
 
-Unity 6.3 LTS
-URP
-Mirror (GitHub)
-Telepathy Transport
-Mono (dev)
-IL2CPP (release)
+Unity 6.3 LTS,
+URP,
+Mirror (GitHub),
+Telepathy Transport,
+Mono (dev),
+IL2CPP (release),
 
 🎨 URP (Universal Render Pipeline)
 Grafiğin nasıl çizileceğini belirler.
