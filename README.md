@@ -59,3 +59,8 @@ Daha güvenli (hile zor)
 Server + client için ideal
 Dezavantajı:
 Build süresi uzun
+
+Unity İçin Pratik Modelleme Yol Haritası
+Meshroom ile fotoğraflardan 3D modeli oluşturun.
+Modeli Blender'a atıp poligon sayısını düşürün (Decimate modifier).
+Temizlenmiş modeli Unity'ye .fbx olarak aktarın.
