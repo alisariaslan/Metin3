@@ -1,6 +1,3 @@
-Harika bir ekleme. **Blazor** sayesinde oyun sunucusu, Web API ve Web sitesi arasında aynı C# modellerini (DTO - Data Transfer Objects) paylaşabileceksin. Bu da hata payını sıfıra indirir ve geliştirme hızını inanılmaz artırır.
-
-İşte **Blazor** entegrasyonuyla güncellenmiş, en kapsamlı **README.md**:
 
 ---
 
