@@ -1,66 +1,76 @@
-# Metin3
-Metin2 oyun projesinin Unity ile yazılıp modernleştirilmiş halidir. 
+🎮 Metin2 Oyun Projesi – Unity ile Modernleştirilmiş Hal
+Bu proje, klasik Metin2 oyununun Unity altyapısı üzerinde geliştirilmiş modern versiyonudur. Oyun, hem grafiksel olarak hem de teknik olarak güncel bir yapıya sahiptir.
 
-Unity 6.3 LTS,
-URP,
-Mirror (GitHub),
-Telepathy Transport,
-Mono (dev),
-IL2CPP (release),
+🛠️ Kullanılan Teknolojiler ve Sürümler
+Unity: 6.0.0.3.2f1
+Blender: 3.6
+Animasyonlar: Mixamo’dan alınmıştır
+🎨 Grafik Motoru: URP (Universal Render Pipeline)
+URP, oyunun görsel rendering şeklini belirler.
 
-🎨 URP (Universal Render Pipeline)
-Grafiğin nasıl çizileceğini belirler.
 “Oyun ne kadar süslü, ne kadar hızlı çalışacak?”
+
 Neden URP?
-Hafif
-Performanslı
-Metin2 tarzı sade grafik için ideal
-Düşük sistemlerde bile akar
+Hafif ve performanslıdır
+Metin2 tarzı sade grafikler için idealdir
+Düşük sistemlerde bile sorunsuz çalışır
 Alternatifler:
-Built-in ❌ (eski)
-HDRP ❌ (aşırı ağır)
+Built-in ❌ (eski ve yavaş)
+HDRP ❌ (aşırı ağır, gereksiz)
 👉 URP = doğru seçim
 
-🌐 Mirror (GitHub)
-Oyunu online yapar.
-“Oyuncular birbirini nasıl görecek, kim server’a bağlanacak?”
-Mirror şunları sağlar:
-Client ↔ Server iletişimi
-Oyuncu spawn
-Sync (pozisyon, animasyon vs.)
-Dedicated server
-Unity’nin kendi eski UNET sisteminin modern hâli gibi.
+🌐 Ağ Sistemi: Mirror (GitHub)
+Oyunun online hale gelmesini sağlar.
 
-🔌 Telepathy Transport
-Mirror’un internet üzerinden veri gönderen motoru.
+“Oyuncular birbirini nasıl görecek, kim server’a bağlanacak?”
+
+Mirror ile sağlanan özellikler:
+Client ↔ Server iletişimi
+Oyuncu spawn işlemleri
+Sync (pozisyon, animasyon vs.)
+Dedicated server desteği
+Mirror, Unity’in eski UNET sistemine benzer şekilde modernleştirilmiş bir yapıdır.
+
+🔌 Ağ Transport: Telepathy Transport
+Mirror’ın internet üzerinden veri göndermesini sağlayan motorudur.
+
 “Mirror mesajları hangi yoldan yolluyor?”
+
+Özellikler:
 TCP tabanlı
-Stabil
+Stabil ve güvenli
 Küçük MMO’lar için ideal
 Alternatifler:
 KCP (UDP) → hızlı ama karmaşık
-WebSocket → tarayıcı için
+WebSocket → tarayıcı desteği için
 👉 Telepathy = en sorunsuz başlangıç
 
-🧠 Mono (dev)
+🧠 Kod Çalıştırma Motoru: Mono (Development)
 C# kodlarının nasıl çalıştırılacağını belirler.
-“Kodları çalıştıran motor”
-Neden development’ta Mono?
-Çok hızlı build alır
-Hata ayıklama kolay
-Online test yaparken ideal
 
-🚀 IL2CPP (release)
-Oyunu son kullanıcıya dağıtmak için kullanılır.
+“Kodları çalıştıran motor”
+
+Neden Development ortamında Mono?
+Hızlı build işlemleri
+Hata ayıklama kolaylığı
+Online testler için ideal
+🚀 Dağıtım Motoru: IL2CPP (Release)
+Oyunun son kullanıcıya dağıtıldığı aşamadır.
+
 “Oyunu makine diline çevirir”
+
 Avantajları:
-Daha hızlı
+Daha hızlı çalışır
 Daha güvenli (hile zor)
 Server + client için ideal
 Dezavantajı:
 Build süresi uzun
-
-Unity İçin Pratik Modelleme Yol Haritası
-Meshroom ile fotoğraflardan 3D modeli oluşturun.
-Modeli Blender'a atıp poligon sayısını düşürün (Decimate modifier).
-Temizlenmiş modeli Unity'ye .fbx olarak aktarın.
+🧱 Unity İçin Pratik Modelleme Yol Haritası
+Meshroom ile fotoğraflardan 3D model oluştur
+Modeli Blender’a aktar
+Poligon sayısını azalt (Decimate modifier)
+Temizlenmiş modeli Unity’ye .fbx formatında aktar
+Animasyonlar: Mixamo üzerinden alınan karakter animasyonları entegre edilir
+📌 Notlar:
+Karakter animasyonları, Mixamo platformundan alınmış ve Unity üzerinde uyumlu şekilde düzenlenmiştir.
+Blender 3.6 kullanılarak model optimizasyonu yapılmıştır.
