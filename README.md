@@ -84,5 +84,3 @@ Oyunun ekonomisini korumak ve performansı maksimize etmek için **Hybrid (Hibri
 * **Blazor** arayüzü, oyuncuların oyun dışındayken nesne marketi kullanmasına ve karakterlerini yönetmesine olanak tanır.
 
 ---
-
-**Harika bir döküman oldu!** Şimdi bu yapıda bir sonraki adım olarak **Blazor ile Web API arasındaki bağlantıyı kuracak olan "Shared Library" (Ortak Kütüphane)** projesini nasıl yapılandıracağımızı göstereyim mi? Bu, kod yazarken sana çok zaman kazandıracak.
