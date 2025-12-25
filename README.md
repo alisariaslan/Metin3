@@ -4,6 +4,7 @@ Bu proje, klasik Metin2 oyununun Unity altyapısı üzerinde geliştirilmiş mod
 🛠️ Kullanılan Teknolojiler ve Sürümler
 Unity: 6.0.0.3.2f1
 Blender: 3.6
+Visual Studio: 22
 Animasyonlar: Mixamo’dan alınmıştır
 🎨 Grafik Motoru: URP (Universal Render Pipeline)
 URP, oyunun görsel rendering şeklini belirler.
