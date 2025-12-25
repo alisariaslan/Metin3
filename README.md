@@ -1,77 +1,89 @@
-🎮 Metin2 Oyun Projesi – Unity ile Modernleştirilmiş Hal
-Bu proje, klasik Metin2 oyununun Unity altyapısı üzerinde geliştirilmiş modern versiyonudur. Oyun, hem grafiksel olarak hem de teknik olarak güncel bir yapıya sahiptir.
+İşte tüm stratejileri, teknik detayları ve modern mimariyi kapsayan, profesyonelce hazırlanmış güncel **README.md** içeriği. Bunu kopyalayıp direkt projenin ana dizinine yapıştırabilirsin.
 
-🛠️ Kullanılan Teknolojiler ve Sürümler
-Unity: 6.0.0.3.2f1
-Blender: 3.6
-Visual Studio: 22
-Animasyonlar: Mixamo’dan alınmıştır
-🎨 Grafik Motoru: URP (Universal Render Pipeline)
-URP, oyunun görsel rendering şeklini belirler.
+---
 
-“Oyun ne kadar süslü, ne kadar hızlı çalışacak?”
+# 🎮 Metin2 Oyun Projesi – Unity ile Modernleştirilmiş Hal
 
-Neden URP?
-Hafif ve performanslıdır
-Metin2 tarzı sade grafikler için idealdir
-Düşük sistemlerde bile sorunsuz çalışır
-Alternatifler:
-Built-in ❌ (eski ve yavaş)
-HDRP ❌ (aşırı ağır, gereksiz)
-👉 URP = doğru seçim
+Bu proje, klasik Metin2 oyununun **Unity 6** altyapısı üzerinde geliştirilmiş, modern yazılım mimarileriyle desteklenen versiyonudur. Proje sadece bir görsel yenileme değil; veritabanı tutarlılığı, ölçeklenebilir backend ve modern ağ protokollerini içeren tam kapsamlı bir MMORPG altyapısıdır.
 
-🌐 Ağ Sistemi: Mirror (GitHub)
-Oyunun online hale gelmesini sağlar.
+---
 
-“Oyuncular birbirini nasıl görecek, kim server’a bağlanacak?”
+## 🏗️ Veri Yönetimi ve Backend Stratejisi
 
-Mirror ile sağlanan özellikler:
-Client ↔ Server iletişimi
-Oyuncu spawn işlemleri
-Sync (pozisyon, animasyon vs.)
-Dedicated server desteği
-Mirror, Unity’in eski UNET sistemine benzer şekilde modernleştirilmiş bir yapıdır.
+Oyunun ekonomisini korumak ve performansı maksimize etmek için **Hybrid (Hibrit) Veri Tabanı** mimarisi benimsenmiştir.
 
-🔌 Ağ Transport: Telepathy Transport
-Mirror’ın internet üzerinden veri göndermesini sağlayan motorudur.
+| Veri Tipi | Teknoloji | Amaç ve Avantaj |
+| --- | --- | --- |
+| **Oyuncu Hesapları & Itemler** | **PostgreSQL** | ACID uyumluluğu ile %100 veri tutarlılığı. Item kopyalama (dupe) riskini engeller. |
+| **Ekonomi & Ticaret Logları** | **PostgreSQL** | İlişkisel veri yapısı ile güvenli ticaret ve detaylı raporlama. |
+| **Anlık Konum & Session** | **Redis** | Milisaniyelik hız, düşük gecikme. Sunucu RAM yükünü optimize eder. |
+| **Büyük Log Verileri** | **ClickHouse** | Milyonlarca satırlık oyun içi aksiyonu analiz etmek için yüksek sıkıştırmalı depolama. |
+| **Karakter Sıralaması** | **Redis (Cache)** | DB'yi yormadan anlık sıralama (Ranking) verisi sunar. |
+| **Nesne Market (Shop)** | **Transactional DB** | Kritik ekonomi işlemleri için güvenli ve loglanabilir yapı. |
+| **Mobile Companion** | **Flutter + API** | Oyuncuların dışarıdayken pazarlarını kontrol edebilmesi için API entegrasyonu. |
 
-“Mirror mesajları hangi yoldan yolluyor?”
+---
 
-Özellikler:
-TCP tabanlı
-Stabil ve güvenli
-Küçük MMO’lar için ideal
-Alternatifler:
-KCP (UDP) → hızlı ama karmaşık
-WebSocket → tarayıcı desteği için
-👉 Telepathy = en sorunsuz başlangıç
+## 🛠️ Kullanılan Teknolojiler ve Sürümler
 
-🧠 Kod Çalıştırma Motoru: Mono (Development)
-C# kodlarının nasıl çalıştırılacağını belirler.
+### 🎮 Oyun Motoru & Grafik
 
-“Kodları çalıştıran motor”
+* **Unity:** `6.0.0.3.2f1`
+* **Grafik Motoru:** **URP (Universal Render Pipeline)**
+* *Neden?* Performans dostudur, Metin2'nin klasik atmosferini modern ışıklandırma ile birleştirir ve düşük donanımlarda bile akıcı çalışır.
 
-Neden Development ortamında Mono?
-Hızlı build işlemleri
-Hata ayıklama kolaylığı
-Online testler için ideal
-🚀 Dağıtım Motoru: IL2CPP (Release)
-Oyunun son kullanıcıya dağıtıldığı aşamadır.
 
-“Oyunu makine diline çevirir”
+* **Modelleme:** **Blender 3.6** & **Meshroom** (Photogrammetry ile gerçekçi nesne tarama).
+* **Animasyonlar:** Mixamo üzerinden optimize edilmiş ve Unity Animator ile yapılandırılmış setler.
 
-Avantajları:
-Daha hızlı çalışır
-Daha güvenli (hile zor)
-Server + client için ideal
-Dezavantajı:
-Build süresi uzun
-🧱 Unity İçin Pratik Modelleme Yol Haritası
-Meshroom ile fotoğraflardan 3D model oluştur
-Modeli Blender’a aktar
-Poligon sayısını azalt (Decimate modifier)
-Temizlenmiş modeli Unity’ye .fbx formatında aktar
-Animasyonlar: Mixamo üzerinden alınan karakter animasyonları entegre edilir
-📌 Notlar:
-Karakter animasyonları, Mixamo platformundan alınmış ve Unity üzerinde uyumlu şekilde düzenlenmiştir.
-Blender 3.6 kullanılarak model optimizasyonu yapılmıştır.
+### 🌐 Ağ ve API Altyapısı (Networking)
+
+* **Ağ Sistemi:** **Mirror** (High-level networking API).
+* **Ağ Transport:** **Telepathy Transport**
+* *Özellikler:* TCP tabanlı, stabil ve güvenli mesaj iletimi sağlar.
+
+
+* **Web API:** **ASP.NET Core (C#)**
+* Oyun sunucusu, Web sitesi ve Mobil uygulama arasındaki merkezi köprüdür.
+
+
+
+### 🧠 Kod Çalıştırma ve Dağıtım
+
+* **Geliştirme (Mono):** Hızlı build ve kolay hata ayıklama (Debugging) için tercih edilir.
+* **Dağıtım (IL2CPP):** * Kodun makine diline çevrilmesiyle yüksek performans sağlar.
+* Tersine mühendisliği zorlaştırarak hile (cheat) güvenliğini artırır.
+
+
+
+---
+
+## 🧱 Varlık (Asset) ve Modelleme Yol Haritası
+
+Oyun varlıkları oluşturulurken modern bir "Asset Pipeline" izlenir:
+
+1. **Tarama:** Meshroom kullanılarak gerçek dünyadaki nesnelerden fotoğraflar üzerinden 3D modeller üretilir.
+2. **Düzenleme:** Ham modeller Blender'a aktarılır.
+3. **Optimizasyon:** `Decimate Modifier` ile poligon sayısı düşürülür (Retopology), UV mapleri hazırlanır.
+4. **Entegrasyon:** Hazırlanan `.fbx` dosyaları URP uyumlu shaderlar ile Unity içine dahil edilir.
+5. **Hareket:** Mixamo üzerinde riglenen modeller, Unity'de `Mirror` üzerinden senkronize bir şekilde canlandırılır.
+
+---
+
+## 🛡️ Güvenlik ve Anti-Cheat Modeli
+
+* **Server-Side Authority:** Tüm hareketler ve hasar hesaplamaları sunucu tarafında doğrulanır.
+* **Rate Limiting:** Web API tarafında brute-force ve bot saldırılarına karşı istek sınırlaması uygulanır.
+* **Anti-Cheat Dashboard:** Log analizi API uçları ile şüpheli oyuncu hareketleri anlık olarak yönetim paneline düşer.
+
+---
+
+## 📌 Geliştirici Notları
+
+* Karakter animasyonları, Mixamo platformundan alınmış ve Unity üzerinde uyumlu şekilde düzenlenmiştir.
+* Veritabanı işlemleri için asenkron (async/await) yapı kullanılarak sunucu kilitlenmeleri önlenmiştir.
+* Web sitesi ve mobil uygulama, aynı merkezi **Web API** üzerinden PostgreSQL ve Redis verilerine erişir.
+
+---
+
+**Sence bu README'ye bir de "Gelecek Planları (Roadmap)" başlığı ekleyelim mi? (Örneğin: At binme sistemi, Lonca savaşları vb.)**
