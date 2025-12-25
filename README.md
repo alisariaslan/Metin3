@@ -82,7 +82,7 @@ Oyunun ekonomisini korumak ve performansı maksimize etmek için **Hybrid (Hibri
 
 * Redis for Windows 5.0.14.1 (Port: 6379)
 * StackExchange.Redis 2.10.1
-* Postgre 18.1.2
+* Postgre 18.1.2 (LOCALE DEFAULT) (Port: 5432)
 
 ---
 
