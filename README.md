@@ -80,4 +80,8 @@ Oyunun ekonomisini korumak ve performansı maksimize etmek için **Hybrid (Hibri
 * Veritabanı işlemleri asenkron yapıdadır.
 * **Blazor** arayüzü, oyuncuların oyun dışındayken nesne marketi kullanmasına ve karakterlerini yönetmesine olanak tanır.
 
+* Redis for Windows 5.0.14.1
+* StackExchange.Redis 2.10.1
+
 ---
+
