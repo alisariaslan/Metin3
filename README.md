@@ -1,10 +1,12 @@
-İşte tüm stratejileri, teknik detayları ve modern mimariyi kapsayan, profesyonelce hazırlanmış güncel **README.md** içeriği. Bunu kopyalayıp direkt projenin ana dizinine yapıştırabilirsin.
+Harika bir ekleme. **Blazor** sayesinde oyun sunucusu, Web API ve Web sitesi arasında aynı C# modellerini (DTO - Data Transfer Objects) paylaşabileceksin. Bu da hata payını sıfıra indirir ve geliştirme hızını inanılmaz artırır.
+
+İşte **Blazor** entegrasyonuyla güncellenmiş, en kapsamlı **README.md**:
 
 ---
 
 # 🎮 Metin2 Oyun Projesi – Unity ile Modernleştirilmiş Hal
 
-Bu proje, klasik Metin2 oyununun **Unity 6** altyapısı üzerinde geliştirilmiş, modern yazılım mimarileriyle desteklenen versiyonudur. Proje sadece bir görsel yenileme değil; veritabanı tutarlılığı, ölçeklenebilir backend ve modern ağ protokollerini içeren tam kapsamlı bir MMORPG altyapısıdır.
+Bu proje, klasik Metin2 oyununun **Unity 6** altyapısı üzerinde geliştirilmiş, modern yazılım mimarileriyle desteklenen versiyonudur. Proje; güvenli veritabanı yapısı, C# uçtan uca (End-to-End) geliştirme ekosistemi ve performanslı bir ağ altyapısını birleştirir.
 
 ---
 
@@ -14,13 +16,12 @@ Oyunun ekonomisini korumak ve performansı maksimize etmek için **Hybrid (Hibri
 
 | Veri Tipi | Teknoloji | Amaç ve Avantaj |
 | --- | --- | --- |
-| **Oyuncu Hesapları & Itemler** | **PostgreSQL** | ACID uyumluluğu ile %100 veri tutarlılığı. Item kopyalama (dupe) riskini engeller. |
-| **Ekonomi & Ticaret Logları** | **PostgreSQL** | İlişkisel veri yapısı ile güvenli ticaret ve detaylı raporlama. |
-| **Anlık Konum & Session** | **Redis** | Milisaniyelik hız, düşük gecikme. Sunucu RAM yükünü optimize eder. |
-| **Büyük Log Verileri** | **ClickHouse** | Milyonlarca satırlık oyun içi aksiyonu analiz etmek için yüksek sıkıştırmalı depolama. |
+| **Hesaplar & Envanter** | **PostgreSQL** | ACID uyumluluğu ile %100 veri tutarlılığı. Dupe riskini engeller. |
+| **Ekonomi & Ticaret** | **PostgreSQL** | İlişkisel veri yapısı ile güvenli ticaret ve detaylı raporlama. |
+| **Anlık Konum & Session** | **Redis** | Milisaniyelik hız. Sunucu RAM yükünü optimize eder. |
+| **Büyük Log Verileri** | **ClickHouse** | Milyonlarca satırlık oyun içi logu analiz etmek için. |
 | **Karakter Sıralaması** | **Redis (Cache)** | DB'yi yormadan anlık sıralama (Ranking) verisi sunar. |
-| **Nesne Market (Shop)** | **Transactional DB** | Kritik ekonomi işlemleri için güvenli ve loglanabilir yapı. |
-| **Mobile Companion** | **Flutter + API** | Oyuncuların dışarıdayken pazarlarını kontrol edebilmesi için API entegrasyonu. |
+| **Nesne Market & Admin** | **Blazor Web App** | C# ile geliştirilmiş, Web API ile tam uyumlu modern web arayüzü. |
 
 ---
 
@@ -30,60 +31,58 @@ Oyunun ekonomisini korumak ve performansı maksimize etmek için **Hybrid (Hibri
 
 * **Unity:** `6.0.0.3.2f1`
 * **Grafik Motoru:** **URP (Universal Render Pipeline)**
-* *Neden?* Performans dostudur, Metin2'nin klasik atmosferini modern ışıklandırma ile birleştirir ve düşük donanımlarda bile akıcı çalışır.
+* **Modelleme:** **Blender 3.6** & **Meshroom** (Photogrammetry).
+* **Animasyonlar:** Mixamo üzerinden optimize edilmiş setler.
+
+### 🌐 Web & API Ekosistemi (Uçtan Uca C#)
+
+* **Web API:** **ASP.NET Core 9+** (Merkezi veri köprüsü).
+* **Web Sitesi:** **Blazor WebAssembly / Interactive Server**
+* *Neden?* Oyun sunucusuyla aynı C# sınıflarını (Item, Player, Skill) kullanarak kod tekrarını önler.
+* *Avantaj:* JS ihtiyacını minimize eder, yüksek güvenlikli oyuncu panelleri sunar.
 
 
-* **Modelleme:** **Blender 3.6** & **Meshroom** (Photogrammetry ile gerçekçi nesne tarama).
-* **Animasyonlar:** Mixamo üzerinden optimize edilmiş ve Unity Animator ile yapılandırılmış setler.
+* **Mobile Companion:** **Flutter** (API üzerinden anlık pazar takibi).
 
-### 🌐 Ağ ve API Altyapısı (Networking)
+### 🌐 Ağ Altyapısı (Networking)
 
-* **Ağ Sistemi:** **Mirror** (High-level networking API).
-* **Ağ Transport:** **Telepathy Transport**
-* *Özellikler:* TCP tabanlı, stabil ve güvenli mesaj iletimi sağlar.
+* **Ağ Sistemi:** **Mirror** (High-level networking).
+* **Ağ Transport:** **Telepathy Transport** (TCP tabanlı stabil iletişim).
 
+---
 
-* **Web API:** **ASP.NET Core (C#)**
-* Oyun sunucusu, Web sitesi ve Mobil uygulama arasındaki merkezi köprüdür.
+## 🚀 Derleme ve Dağıtım (Build Pipeline)
 
-
-
-### 🧠 Kod Çalıştırma ve Dağıtım
-
-* **Geliştirme (Mono):** Hızlı build ve kolay hata ayıklama (Debugging) için tercih edilir.
-* **Dağıtım (IL2CPP):** * Kodun makine diline çevrilmesiyle yüksek performans sağlar.
-* Tersine mühendisliği zorlaştırarak hile (cheat) güvenliğini artırır.
+* **Geliştirme (Mono):** Hızlı prototipleme ve kolay Debugging.
+* **Dağıtım (IL2CPP):** * **Performans:** C# kodunu C++'a çevirerek işlemci verimliliğini artırır.
+* **Güvenlik:** Kodun decompile edilmesini zorlaştırarak hilelere karşı koruma sağlar.
 
 
 
 ---
 
-## 🧱 Varlık (Asset) ve Modelleme Yol Haritası
+## 🧱 Varlık (Asset) İş Akışı
 
-Oyun varlıkları oluşturulurken modern bir "Asset Pipeline" izlenir:
-
-1. **Tarama:** Meshroom kullanılarak gerçek dünyadaki nesnelerden fotoğraflar üzerinden 3D modeller üretilir.
-2. **Düzenleme:** Ham modeller Blender'a aktarılır.
-3. **Optimizasyon:** `Decimate Modifier` ile poligon sayısı düşürülür (Retopology), UV mapleri hazırlanır.
-4. **Entegrasyon:** Hazırlanan `.fbx` dosyaları URP uyumlu shaderlar ile Unity içine dahil edilir.
-5. **Hareket:** Mixamo üzerinde riglenen modeller, Unity'de `Mirror` üzerinden senkronize bir şekilde canlandırılır.
+1. **Tarama:** Meshroom ile gerçek nesnelerin fotoğraflarından model üretimi.
+2. **Optimizasyon:** Blender `Decimate` ve `Retopology` ile düşük poligonlu oyun modellerine dönüştürme.
+3. **Entegrasyon:** `.fbx` modellerin URP shaderları ve Unity Animator ile canlandırılması.
 
 ---
 
 ## 🛡️ Güvenlik ve Anti-Cheat Modeli
 
-* **Server-Side Authority:** Tüm hareketler ve hasar hesaplamaları sunucu tarafında doğrulanır.
-* **Rate Limiting:** Web API tarafında brute-force ve bot saldırılarına karşı istek sınırlaması uygulanır.
-* **Anti-Cheat Dashboard:** Log analizi API uçları ile şüpheli oyuncu hareketleri anlık olarak yönetim paneline düşer.
+* **Server-Side Authority:** Tüm fizik ve hasar hesaplamaları sunucuda doğrulanır.
+* **Shared Logic:** Blazor web paneli ve oyun sunucusu, aynı doğrulama mantığını (Validation Logic) paylaşır.
+* **Anti-Cheat Dashboard:** Blazor admin paneli üzerinden anlık log analizi ve oyuncu banlama işlemleri.
 
 ---
 
 ## 📌 Geliştirici Notları
 
-* Karakter animasyonları, Mixamo platformundan alınmış ve Unity üzerinde uyumlu şekilde düzenlenmiştir.
-* Veritabanı işlemleri için asenkron (async/await) yapı kullanılarak sunucu kilitlenmeleri önlenmiştir.
-* Web sitesi ve mobil uygulama, aynı merkezi **Web API** üzerinden PostgreSQL ve Redis verilerine erişir.
+* Proje, C# ekosisteminin gücünü kullanarak (Unity + .NET API + Blazor) tek bir dil ile tüm platformlara hitap eder.
+* Veritabanı işlemleri asenkron yapıdadır.
+* **Blazor** arayüzü, oyuncuların oyun dışındayken nesne marketi kullanmasına ve karakterlerini yönetmesine olanak tanır.
 
 ---
 
-**Sence bu README'ye bir de "Gelecek Planları (Roadmap)" başlığı ekleyelim mi? (Örneğin: At binme sistemi, Lonca savaşları vb.)**
+**Harika bir döküman oldu!** Şimdi bu yapıda bir sonraki adım olarak **Blazor ile Web API arasındaki bağlantıyı kuracak olan "Shared Library" (Ortak Kütüphane)** projesini nasıl yapılandıracağımızı göstereyim mi? Bu, kod yazarken sana çok zaman kazandıracak.
