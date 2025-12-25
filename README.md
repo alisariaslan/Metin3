@@ -85,8 +85,15 @@ Oyunun ekonomisini korumak ve performansı maksimize etmek için **Hybrid (Hibri
 
 ---
 
-Seviye,Adı,Teknik Karşılığı,Görevi
-Level 1,Hub (Login Server),ASP.NET Core Web API,"Karakter seçimi, sunucu listesi ve Auth işlemleri."
-Level 2,World (Server),Unity Dedicated Server,"""Anadolu"", ""Rumeli"" gibi ana sunucular."
-Level 3,Channel (CH),Unity Server Instance,Aynı sunucunun farklı portlarda çalışan kopyaları.
+Seviye      Adı                        Teknik Karşılığı              Görevi
 
+Level 1,    Hub (Login Server)   ->    ASP.NET Core Web API    ->    "Karakter seçimi, sunucu listesi ve Auth işlemleri."
+
+Level 2,    World (Server)       ->    Unity Dedicated Server  ->    """Anadolu"", ""Rumeli"" gibi ana sunucular."
+
+Level 3,    Channel (CH),Unity   ->    Server Instance         ->    Aynı sunucunun farklı portlarda çalışan kopyaları.
+
+---
+
+M3.Shared
+POST BUILD SCRIPT: copy /Y "$(TargetPath)" "C:\Projects\Metin3\Assets\"
